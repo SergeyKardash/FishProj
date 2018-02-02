@@ -19,9 +19,12 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/bootstrap-4-grid/css/grid.min.css",
         "styles.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/hammerjs/hammer.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
