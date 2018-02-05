@@ -1,0 +1,29 @@
+<!--HEADER-->
+<nav class="header">
+  <button mat-button class="toggleBtn" (click)="sidebar.toggle()">
+    <mat-icon>dehaze</mat-icon>
+  </button>
+  <a>FishingHub</a>
+</nav>
+<!---->
+
+<mat-sidenav-container class="z-depth-5">
+  <!--SIDEBAR-->
+  <mat-sidenav #sidebar mode="side" opened="true">
+    <nav class="sidebar">
+      <a class="home">
+        <mat-icon>home</mat-icon>
+        Главная</a>
+      <a class="home">
+        <mat-icon>video_library</mat-icon>
+        Видео</a>
+    </nav>
+  </mat-sidenav>
+  <!---->
+
+  <!--CONTENT-->
+  <mat-sidenav-content>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!---->

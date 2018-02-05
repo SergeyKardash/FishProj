@@ -6,6 +6,7 @@ import {MaterialModule} from './shared/material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
+import {CoreModule} from './core/core.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {AppComponent} from './app.component';
     FormsModule,
     HttpClientModule,
     MaterialModule,
+    CoreModule,
     BrowserAnimationsModule
   ],
   providers: [],

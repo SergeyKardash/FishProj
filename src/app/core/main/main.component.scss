@@ -1,0 +1,52 @@
+//Header
+
+.header {
+  padding: 20px;
+  background-color: rgba(0, 0, 10, 0.7);
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  position: relative;
+  z-index: 999;
+  button {
+    min-width: inherit;
+    margin-right: 30px;
+  }
+}
+
+////////////////////////////////////
+
+// Sidebar
+.sidebar {
+  min-width: 250px;
+  background-color: rgba(0, 0, 10, 0.5);
+  height: 100%;
+  color: #fff;
+  font-size: 18px;
+  padding: 50px 20px 50px 30px;
+  mat-icon {
+    margin-right: 30px;
+  }
+  a {
+    display: block;
+    margin-bottom: 15px;
+  }
+  .home {
+    mat-icon {
+      position: relative;
+      top: 5px;
+    }
+  }
+}
+
+////////////////////////////
+mat-sidenav-container {
+  height: 100%;
+  background-color: rgba(0, 0, 10, 0.5);
+}
+
+mat-sidenav.mat-drawer.mat-sidenav.ng-tns-c5-0.ng-trigger.ng-trigger-transform.mat-drawer-side.ng-star-inserted {
+  background-color: transparent;
+}
