@@ -7,17 +7,23 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
+import { HomeComponent } from './home/home.component';
+import { VideoComponent } from './video/video.component';
+import {AppRoutingModule} from './app-routing.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     MaterialModule,
+    AppRoutingModule,
     CoreModule,
     BrowserAnimationsModule
   ],

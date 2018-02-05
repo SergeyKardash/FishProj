@@ -11,10 +11,10 @@
   <!--SIDEBAR-->
   <mat-sidenav #sidebar mode="side" opened="true">
     <nav class="sidebar">
-      <a class="home">
+      <a class="home" routerLink="home" routerLinkActive="active">
         <mat-icon>home</mat-icon>
         Главная</a>
-      <a class="home">
+      <a class="video" routerLink="video" routerLinkActive="active">
         <mat-icon>video_library</mat-icon>
         Видео</a>
     </nav>
@@ -23,7 +23,7 @@
 
   <!--CONTENT-->
   <mat-sidenav-content>
-
+  <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 <!---->
