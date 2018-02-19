@@ -10,13 +10,13 @@ import {CoreModule} from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { VideoComponent } from './video/video.component';
 import {AppRoutingModule} from './app-routing.module';
+import {VideoModule} from './video/video.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    VideoComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +25,7 @@ import {AppRoutingModule} from './app-routing.module';
     MaterialModule,
     AppRoutingModule,
     CoreModule,
+    VideoModule,
     BrowserAnimationsModule
   ],
   providers: [],

@@ -1,15 +1,41 @@
 <!--HEADER-->
 <nav class="header">
-  <button mat-button class="toggleBtn" (click)="sidebar.toggle()">
-    <mat-icon>dehaze</mat-icon>
-  </button>
-  <a>FishingHub</a>
+  <div class="flex-container">
+    <button mat-button class="toggleBtn" (click)="sidebar.toggle()">
+      <mat-icon>dehaze</mat-icon>
+    </button>
+    <a class="brand" routerLink="/">
+      FishingHub
+      <img class="logo" src="assets/img/logo.png" alt="">
+    </a>
+
+    <div class="nav-links">
+      <a routerLink="video" routerLinkActive="active">
+        Просмотр
+      </a>
+      <a>
+        Статьи
+      </a>
+      <a>
+        Беседка
+      </a>
+    </div>
+  </div>
+  <div class="auth-buttons">
+    <button mat-button>
+      Войти
+    </button>
+    <button mat-button>
+      Регистрация
+    </button>
+  </div>
+
 </nav>
 <!---->
 
 <mat-sidenav-container class="z-depth-5">
   <!--SIDEBAR-->
-  <mat-sidenav #sidebar mode="side" opened="true">
+  <mat-sidenav #sidebar mode="side">
     <nav class="sidebar">
       <a class="home" routerLink="home" routerLinkActive="active">
         <mat-icon>home</mat-icon>
@@ -23,7 +49,7 @@
 
   <!--CONTENT-->
   <mat-sidenav-content>
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 <!---->
