@@ -22,10 +22,12 @@
     </div>
   </div>
   <div class="auth-buttons">
-    <button mat-button>
+    <button mat-button
+            (click)="onSignIn()">
       Войти
     </button>
-    <button mat-button>
+    <button mat-button
+            (click)="onSignUp()">
       Регистрация
     </button>
   </div>

@@ -1,0 +1,31 @@
+.title {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.signInForm {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  .input-wrapper {
+    width: 100%;
+  }
+  .form-control {
+    height: 45px;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  .btn {
+    margin-top: 10px;
+    background-color: #00695C;
+    border: none;
+    color: white;
+    padding: 10px;
+    line-height: 1.5;
+    font-size: 20px;
+  }
+}
+

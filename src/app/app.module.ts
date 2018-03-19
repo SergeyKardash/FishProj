@@ -10,18 +10,15 @@ import {environment} from '../environments/environment';
 
 import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
-import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {VideoModule} from './video/video.module';
-import { AuthComponent } from './auth/auth.component';
+import {AuthModule} from './auth/auth.module';
 
 export const firebaseConfig = environment.firebaseConfig;
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    AuthComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +29,7 @@ export const firebaseConfig = environment.firebaseConfig;
     AppRoutingModule,
     CoreModule,
     VideoModule,
+    AuthModule,
     BrowserAnimationsModule
   ],
   providers: [],

@@ -1,0 +1,41 @@
+<div class="title">
+  <h2>Регистрация нового аккаунта</h2>
+  <span class="description">( это бесплатно и займет меньше минуты )</span>
+</div>
+<form class="signUpForm"
+      [formGroup]="signUpForm">
+  <div class="input-wrapper">
+    <span> Имя пользователя: </span>
+    <input type="text"
+           class="form-control"
+           formControlName="username"
+           placeholder="Имя (отображается на сайте)">
+  </div>
+  <div class="input-wrapper">
+    <span> Email адресс: </span>
+    <input type="email"
+           class="form-control"
+           formControlName="email"
+           placeholder="Email (используется при входе)">
+  </div>
+  <div class="input-wrapper">
+    <span> Пароль: </span>
+    <input type="password"
+           class="form-control"
+           formControlName="password"
+           placeholder="Ваш пароль">
+  </div>
+  <div class="input-wrapper">
+    <span> Подтвердите пароль: </span>
+    <input type="password"
+           class="form-control"
+           formControlName="confirmPassword"
+           placeholder="Ваш пароль">
+  </div>
+  <button [disabled]="signUpForm.valid ? false : true"
+          class="btn"
+          type="button"
+          (click)="onSignUp()"> Зарегистирироваться </button>
+</form>
+
+
