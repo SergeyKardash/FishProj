@@ -10,6 +10,8 @@
            class="form-control"
            formControlName="username"
            placeholder="Имя (отображается на сайте)">
+    <span *ngIf="(!signUpForm.get('username').valid) && (signUpForm.get('username').touched)"
+          class="tooltip">Имя пользователя должно быть не короче 4 символов</span>
   </div>
   <div class="input-wrapper">
     <span> Email адресс: </span>
@@ -17,6 +19,8 @@
            class="form-control"
            formControlName="email"
            placeholder="Email (используется при входе)">
+    <span *ngIf="(!signUpForm.get('email').valid) && (signUpForm.get('email').touched)"
+          class="tooltip">Не коректный Email адресс</span>
   </div>
   <div class="input-wrapper">
     <span> Пароль: </span>
@@ -24,13 +28,18 @@
            class="form-control"
            formControlName="password"
            placeholder="Ваш пароль">
+    <span *ngIf="(!signUpForm.get('password').valid) && (signUpForm.get('password').touched)"
+          class="tooltip">Пароль должен быть не короче 6 символов</span>
   </div>
   <div class="input-wrapper">
     <span> Подтвердите пароль: </span>
     <input type="password"
            class="form-control"
+           (keyup)="confirmPassword($event)"
            formControlName="confirmPassword"
            placeholder="Ваш пароль">
+    <span #passwordTooltip
+          class="tooltip">Пароли не совпадают</span>
   </div>
   <button [disabled]="signUpForm.valid ? false : true"
           class="btn"

@@ -4,6 +4,8 @@ import {AuthService} from './auth.service';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AngularFireAuth} from 'angularfire2/auth';
+import {AngularFirestore} from 'angularfire2/firestore';
 
 @NgModule({
   imports: [
@@ -13,8 +15,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   ],
   declarations: [
   SignInComponent,
-  SignUpComponent],
-  providers: [AuthService],
+  SignUpComponent
+  ],
+  providers: [AuthService, AngularFireAuth, AngularFirestore],
   entryComponents: [
     SignInComponent,
     SignUpComponent

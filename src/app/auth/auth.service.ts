@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {Router} from '@angular/router';
-import * as firebase from 'firebase';
 import {MatDialog} from '@angular/material';
+import {AngularFirestore} from 'angularfire2/firestore';
+import {User} from 'app/shared/user.model';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class AuthService {
@@ -11,10 +13,15 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth,
               private dialog: MatDialog,
-              private router: Router) {
+              private router: Router,
+              private afs: AngularFirestore) {
     this.afAuth.authState.subscribe((auth) => {
       this.authState = auth;
     });
+  }
+
+  get authState$() {
+    return this.afAuth.authState;
   }
 
   // Returns true if user is logged in
@@ -22,38 +29,37 @@ export class AuthService {
     return this.authState !== null;
   }
 
-  // Returns current user data
-  get currentUser(): any {
-    return this.authenticated ? this.authState : null;
-  }
-
-  get currentUserId(): string {
-    return this.authenticated ? this.authState.uid : '';
-  }
-
-  // emailSignUp(email: string, password: string) {
-  //   return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-  //     .then((user) => {
-  //       this.authState = user;
-  //       this.updateUserData();
-  //     })
-  //     .catch(error => console.log(error));
+  //
+  // // Returns current user data
+  // get currentUser(): any {
+  //   return this.authenticated ? this.authState : null;
   // }
   //
-  // emailLogin(email: string, password: string) {
-  //   return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-  //     .then((user) => {
-  //       this.authState = user;
-  //       this.updateUserData();
-  //     })
-  //     .catch(error => console.log(error));
+  // get currentUserId(): string {
+  //   return this.authenticated ? this.authState.uid : '';
   // }
+
+  emailSignUp(email: string, password: string, name: string) {
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then((user) => {
+        this.authState = user;
+        this.updateUserData(name, email, password);
+      })
+      .catch(error => console.log(error));
+  }
+
+  emailLogin(email: string, password: string, dialogRef) {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        this.authState = user;
+        dialogRef.close();
+      })
+      .catch(error => console.log(error));
+  }
 
   // Sends email allowing user to reset password
   resetPassword(email: string) {
-    let auth = firebase.auth();
-
-    return auth.sendPasswordResetEmail(email)
+    firebase.auth().sendPasswordResetEmail(email)
       .then(() => console.log('email sent'))
       .catch((error) => console.log(error));
   }
@@ -65,19 +71,10 @@ export class AuthService {
   }
 
 
-  // private updateUserData(): void {
-  //   //   // Writes user name and email to realtime db
-  //   //   // useful if your app displays information about users or for admin features
-  //   //   let path = `users/${this.currentUserId}`; // Endpoint on firebase
-  //   //   let data = {
-  //   //     email: this.authState.email,
-  //   //     name: this.authState.displayName
-  //   //   };
-  //   //
-  //   //   this.db.object(path).update(data)
-  //   //     .catch(error => console.log(error));
-  //   //
-  //   // }
-
+  private updateUserData(name, email, password): void {
+    const usersCollection = this.afs.collection<User>('users');
+    let user = new User(name, email, password, this.authState.uid);
+    usersCollection.add(JSON.parse(JSON.stringify(user)));
+  }
 
 }

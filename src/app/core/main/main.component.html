@@ -21,14 +21,21 @@
       </a>
     </div>
   </div>
-  <div class="auth-buttons">
+  <div class="auth-buttons" *ngIf="!(auth.authState$ | async)">
     <button mat-button
-            (click)="onSignIn()">
+            (click)="onSignIn()"
+    >
       Войти
     </button>
     <button mat-button
             (click)="onSignUp()">
       Регистрация
+    </button>
+  </div>
+  <div class="auth-buttons" *ngIf="auth.authState$ | async">
+    <button mat-button
+            (click)="onSignOut()">
+      Выйти
     </button>
   </div>
 

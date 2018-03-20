@@ -1,15 +1,25 @@
 <div class="title">
   <h2>Вход</h2>
 </div>
-<form class="signInForm">
+<form [formGroup]="signInForm"
+      class="signInForm">
   <div class="input-wrapper">
     <span> Email адресс: </span>
-    <input type="email" class="form-control" placeholder="example@example.com">
+    <input type="email"
+           formControlName="email"
+           class="form-control"
+           placeholder="example@example.com">
   </div>
   <div class="input-wrapper">
     <span> Пароль: </span>
-    <input type="password" class="form-control" placeholder="Ваш пароль">
+    <input type="password"
+           formControlName="password"
+           class="form-control"
+           placeholder="Ваш пароль">
   </div>
-  <button class="btn"> Войти </button>
+  <button type="button"
+          (click)="onSignIn()"
+          class="btn"> Войти
+  </button>
 </form>
 
