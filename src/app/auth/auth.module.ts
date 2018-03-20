@@ -17,7 +17,6 @@ import {AngularFirestore} from 'angularfire2/firestore';
   SignInComponent,
   SignUpComponent
   ],
-  providers: [AuthService, AngularFireAuth, AngularFirestore],
   entryComponents: [
     SignInComponent,
     SignUpComponent

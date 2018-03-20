@@ -24,21 +24,6 @@ export class AuthService {
     return this.afAuth.authState;
   }
 
-  // Returns true if user is logged in
-  get authenticated(): boolean {
-    return this.authState !== null;
-  }
-
-  //
-  // // Returns current user data
-  // get currentUser(): any {
-  //   return this.authenticated ? this.authState : null;
-  // }
-  //
-  // get currentUserId(): string {
-  //   return this.authenticated ? this.authState.uid : '';
-  // }
-
   emailSignUp(email: string, password: string, name: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => {
@@ -64,7 +49,6 @@ export class AuthService {
       .catch((error) => console.log(error));
   }
 
-  //// Sign Out ////
   signOut(): void {
     this.afAuth.auth.signOut();
     this.router.navigate(['/']);

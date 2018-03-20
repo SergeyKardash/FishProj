@@ -1,6 +1,6 @@
 <!--HEADER-->
 <nav class="header">
-  <div class="flex-container">
+  <div class="header-left">
     <button mat-button class="toggleBtn" (click)="sidebar.toggle()">
       <mat-icon>dehaze</mat-icon>
     </button>
@@ -21,22 +21,29 @@
       </a>
     </div>
   </div>
-  <div class="auth-buttons" *ngIf="!(auth.authState$ | async)">
-    <button mat-button
-            (click)="onSignIn()"
-    >
-      Войти
-    </button>
-    <button mat-button
-            (click)="onSignUp()">
-      Регистрация
-    </button>
-  </div>
-  <div class="auth-buttons" *ngIf="auth.authState$ | async">
-    <button mat-button
-            (click)="onSignOut()">
-      Выйти
-    </button>
+
+  <div class="header-right">
+    <div class="profile" *ngIf="auth.authState$ | async">
+      {{userInfo?.username}}
+    </div>
+    <div class="auth-buttons" *ngIf="!(auth.authState$ | async)">
+      <button mat-button
+              (click)="onSignIn()"
+      >
+        Войти
+      </button>
+      <button mat-button
+              (click)="onSignUp()">
+        Регистрация
+      </button>
+    </div>
+
+    <div class="auth-buttons" *ngIf="auth.authState$ | async">
+      <button mat-button
+              (click)="onSignOut()">
+        Выйти
+      </button>
+    </div>
   </div>
 
 </nav>

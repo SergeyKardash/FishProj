@@ -19,9 +19,16 @@
   .toggleBtn {
     display: none;
   }
-  .flex-container {
+  .header-left {
     display: flex;
     align-items: flex-end;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  .profile {
+    margin-right: 15px;
   }
   button {
     min-width: inherit;
