@@ -11,3 +11,14 @@ html, body {
   font-family: Arial, sans-serif;
   color: #fff;
 }
+
+input {
+  border-style: none;
+  border: 1px solid #999;
+}
+
+// Fixed scrollbar when dialog is showing
+.cdk-global-scrollblock {
+  overflow: visible;
+}
+

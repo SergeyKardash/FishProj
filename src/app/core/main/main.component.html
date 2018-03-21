@@ -1,5 +1,5 @@
 <!--HEADER-->
-<nav class="header">
+<nav [@fadeIn]="fadeIn"  class="header">
   <div class="header-left">
     <button mat-button class="toggleBtn" (click)="sidebar.toggle()">
       <mat-icon>dehaze</mat-icon>
@@ -23,7 +23,14 @@
   </div>
 
   <div class="header-right">
-    <div class="profile" *ngIf="auth.authState$ | async">
+    <div class="profile"
+         *ngIf="auth.authState$ | async"
+         (click)="onProfile()">
+      <div *ngIf="showSpinner" class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
       {{userInfo?.username}}
     </div>
     <div class="auth-buttons" *ngIf="!(auth.authState$ | async)">
@@ -45,11 +52,10 @@
       </button>
     </div>
   </div>
-
 </nav>
 <!---->
 
-<mat-sidenav-container class="z-depth-5">
+<mat-sidenav-container [@fadeIn]="fadeIn"  class="z-depth-5">
   <!--SIDEBAR-->
   <mat-sidenav #sidebar mode="side">
     <nav class="sidebar">

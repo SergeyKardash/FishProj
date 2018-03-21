@@ -29,6 +29,7 @@
   }
   .profile {
     margin-right: 15px;
+    cursor: pointer;
   }
   button {
     min-width: inherit;
@@ -105,4 +106,40 @@ mat-sidenav-container {
   height: 100%;
 }
 
+///////// SPINNER ///////////
+.spinner {
+  width: 50px;
+  text-align: center;
+}
 
+.spinner > div {
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 100%;
+  display: inline-block;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+    }
+}

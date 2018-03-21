@@ -8,6 +8,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import {AuthService} from '../auth/auth.service';
 import {AngularFirestore} from 'angularfire2/firestore';
 import {FirestoreService} from '../shared/firestore.service';
+import {ProfileComponent} from '../profile/profile.component';
 
 @NgModule({
   imports: [
@@ -17,10 +18,12 @@ import {FirestoreService} from '../shared/firestore.service';
   ],
   declarations: [
     MainComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   providers: [AuthService, AngularFireAuth, AngularFirestore, FirestoreService],
-  exports: [MainComponent]
+  exports: [MainComponent],
+  entryComponents: [ProfileComponent]
 })
 export class CoreModule {
 }
